@@ -1,0 +1,41 @@
+/**
+ * @(#)kilowatt.java
+ *
+ *
+ * @author 
+ * @version 1.00 2017/12/19
+ */
+import javax.swing.JOptionPane;
+
+public class kilowatt {
+    public static void main(String[] args) {
+		
+	double kilowatts,BB, EC, ECd, VAT, VATP, TB;
+	kilowatts = Double.parseDouble(JOptionPane.showInputDialog("PAG TUPLOK ug Kilowatts consumed: "));
+	
+	if (kilowatts > 250){
+		ECd = kilowatts - 250;			 // Exceed Kilowatts
+		BB = 250.00 * 2.65; 			 // Basic Bill
+		EC = ECd * 3.80; 				 // Excees Kilowatts
+		VATP = BB + EC;					 // Temporary VAT
+		VAT = VATP * 0.1;				 // VAT
+		TB  = BB + EC + VAT; 			 // Total Bill
+		
+		JOptionPane.showMessageDialog(null, "Basic Bill: " + BB + 
+											"\nExcess Consumption: " + EC + 
+											"\nVAT: " +VAT+
+										    "\n\nTotal Bill: " +TB);
+	} else {
+		BB = kilowatts * 2.65;
+		VAT = BB * 0.1;
+		TB = BB + VAT;
+		JOptionPane.showMessageDialog(null,"Basic Bill: " + BB +
+										   "\n VAT: " +VAT +
+										   "\n Total Bill: " +TB);
+	}
+		
+			
+
+	
+    }
+}
